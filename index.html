@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxia Cognition: Mind Weave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="antialiased">
+
+    <div class="background-animation"></div>
+
+    <div class="container mx-auto px-4 py-12 relative z-10">
+
+        <header class="text-center mb-20 relative overflow-hidden">
+            <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE] leading-tight animate-header-title">
+                <span class="font-playfair text-8xl md:text-9xl font-extrabold block text-[#00C6FF] drop-shadow-lg">Fluxia</span>
+                <span class="font-montserrat text-3xl md:text-4xl font-light tracking-wide text-gray-300 block mt-2 text-[#4ADEDE]">Cognition</span>
+            </h1>
+            <div class="header-description-box max-w-4xl mx-auto mt-8 p-6 rounded-2xl shadow-xl border border-gray-700 bg-gray-800 animate-fade-in-up delay-400 relative overflow-hidden">
+                <div class="description-glow-effect"></div>
+                <p class="text-xl md:text-2xl text-gray-300 relative z-10">Untangle the Threads of Thought: A Dynamic Expedition into the Human Psyche for Self-Mastery.</p>
+            </div>
+            <button id="exploreButton" class="mt-10 px-8 py-4 bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE] text-gray-900 font-bold rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out opacity-0 animate-fade-in-up delay-600">Begin Your Journey <i class="fas fa-arrow-right ml-2"></i></button>
+        </header>
+
+        <section id="mind-bending-facts" class="mb-24 slide-in bottom">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">Mind-Bending Insights <i class="fas fa-magic ml-2 text-[#4ADEDE]"></i></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                <div class="fact-circle group p-6 flex flex-col items-center justify-center text-center">
+                    <div class="icon-wrapper">🧠</div>
+                    <p class="fact-text text-sm md:text-base mt-3">Your brain "sees" things up to 150 milliseconds before they actually happen.</p>
+                </div>
+                <div class="fact-circle group p-6 flex flex-col items-center justify-center text-center">
+                    <div class="icon-wrapper">✨</div>
+                    <p class="fact-text text-sm md:text-base mt-3">The Placebo Effect is so powerful it can mimic real drug effects, even surgeries.</p>
+                </div>
+                <div class="fact-circle group p-6 flex flex-col items-center justify-center text-center">
+                    <div class="icon-wrapper">🌈</div>
+                    <p class="fact-text text-sm md:text-base mt-3">Some people with Synesthesia can literally taste words or see sounds as colors.</p>
+                </div>
+                <div class="fact-circle group p-6 flex flex-col items-center justify-center text-center">
+                    <div class="icon-wrapper">💡</div>
+                    <p class="fact-text text-sm md:text-base mt-3">Humans only use about 10% of their brain at any given moment, but over a day, you use almost all of it!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="introduction" class="mb-24 grid grid-cols-1 md:grid-cols-3 gap-12 slide-in left">
+            <div class="md:col-span-1 stat-card p-8 rounded-xl relative overflow-hidden group">
+                <div class="stat-card-glow"></div>
+                <div class="text-7xl font-black text-[#4ADEDE] mb-4 relative z-10">75%</div>
+                <p class="text-lg font-semibold mt-2 text-gray-200 relative z-10">of Gen Z report that managing stress is a top priority for their mental wellness.</p>
+                <p class="text-sm text-gray-400 mt-4 relative z-10">Psychology provides the essential toolkit for navigating the pressures of modern life, from academic stress to the complexities of our digital world.</p>
+            </div>
+            <div class="md:col-span-1 stat-card p-8 rounded-xl relative overflow-hidden group">
+                <div class="stat-card-glow"></div>
+                <div class="text-7xl font-black text-[#00C6FF] mb-4 relative z-10">1/3</div>
+                <p class="text-lg font-semibold mt-2 text-gray-200 relative z-10">of adults report not getting enough sleep, profoundly impacting their cognitive function.</p>
+                <p class="text-sm text-gray-400 mt-4 relative z-10">Adequate sleep is fundamental to memory consolidation, emotional regulation, and decision-making ability.</p>
+            </div>
+            <div class="md:col-span-1 stat-card p-8 rounded-xl relative overflow-hidden group">
+                <div class="stat-card-glow"></div>
+                <div class="text-7xl font-black text-[#38B2AC] mb-4 relative z-10">80%</div>
+                <p class="text-lg font-semibold mt-2 text-gray-200 relative z-10">of mental health improvements come from strong social connections and support systems.</p>
+                <p class="text-sm text-gray-400 mt-4 relative z-10">Human connection reduces feelings of isolation and boosts resilience against psychological distress.</p>
+            </div>
+        </section>
+
+        <section id="cognitive" class="mb-24 slide-in bottom">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">The Mind's Blueprint: How We Think & Remember</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-8 card-hover-effect">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00C6FF] flex items-center"><i class="fas fa-brain mr-3 text-[#4ADEDE]"></i> The Architecture of Memory</h3>
+                    <p class="text-gray-400 mb-6">Your memory isn't a single entity. It's a complex system with different stages, each with its own capacity and duration. Understanding this helps in developing effective learning strategies and improving recall.</p>
+                    <div class="chart-container">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg text-sm text-gray-300 border-l-4 border-[#00C6FF]">
+                        <p class="font-semibold mb-2">💡 Pro Tip:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><span class="text-[#4ADEDE]">Sensory:</span> fleeting, holds raw input.</li>
+                            <li><span class="text-[#00C6FF]">Short-Term:</span> limited, needs rehearsal.</li>
+                            <li><span class="text-[#38B2AC]">Long-Term:</span> vast, permanent.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-8 card-hover-effect">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00C6FF] flex items-center"><i class="fas fa-lightbulb mr-3 text-[#4ADEDE]"></i> The Battle for Focus: Attention Across Generations</h3>
+                    <p class="text-gray-400 mb-6">In a world of constant digital stimulation, the ability to maintain deep focus is a superpower. This chart shows hypothetical data on how sustained attention spans vary across generations, highlighting modern challenges.</p>
+                    <div class="chart-container">
+                        <canvas id="attentionChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg text-sm text-gray-300 border-l-4 border-[#4ADEDE]">
+                        <p class="font-semibold mb-2">🎯 Boost Your Focus:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Minimize distractions (notifications off!).</li>
+                            <li>Practice mindful breathing for short breaks.</li>
+                            <li>Use the Pomodoro Technique (25 min focus, 5 min break).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interactive-elements" class="mb-24 slide-in top">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">Interactive Insights</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-8 card-hover-effect">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00C6FF] flex items-center"><i class="fas fa-fire mr-3 text-[#4ADEDE]"></i> Drivers of Action: What Motivates Us?</h3>
+                    <p class="text-gray-400 mb-6">Motivation is the engine of our behavior. It can be fueled by internal passions (intrinsic) or external rewards (extrinsic). A balance is key for long-term fulfillment, especially in academic and personal life.</p>
+                    <div class="chart-container">
+                        <canvas id="motivationChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg text-sm text-gray-300 border-l-4 border-[#00C6FF]">
+                        <p class="font-semibold mb-2">🌟 Cultivate Motivation:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Find your "why" (intrinsic).</li>
+                            <li>Set small, achievable goals (extrinsic boosts).</li>
+                            <li>Celebrate progress to reinforce positive habits.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-8 card-hover-effect">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00C6FF] flex items-center"><i class="fas fa-heart mr-3 text-[#4ADEDE]"></i> Patterns of Connection: Attachment Styles</h3>
+                    <p class="text-gray-400 mb-6">Our earliest relationships form a blueprint for how we connect with others in adulthood. Understanding your attachment style is a profound step in improving your relationships and emotional well-being.</p>
+                    <div class="chart-container">
+                        <canvas id="attachmentChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg text-sm text-gray-300 border-l-4 border-[#4ADEDE]">
+                        <p class="font-semibold mb-2">❤️ Decode Your Style:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><span class="text-[#00C6FF]">Secure:</span> Comfortable with intimacy and independence.</li>
+                            <li><span class="text-[#4ADEDE]">Anxious:</span> Craves intimacy, fears abandonment.</li>
+                            <li><span class="text-[#38B2AC]">Avoidant:</span> Values independence, uncomfortable with closeness.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="key-terms-flashcards" class="mb-24 slide-in right">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">Key Psychology Terms <i class="fas fa-lightbulb ml-2 text-[#4ADEDE]"></i></h2>
+            <p class="text-center text-gray-400 mb-10 max-w-3xl mx-auto">Test your knowledge! Click on the cards to reveal the definition and deepen your understanding of core psychological concepts.</p>
+            <div id="flashcardContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
+              </div>
+            <div class="text-center mt-12">
+                <button id="nextFlashcard" class="px-6 py-3 bg-gray-700 text-[#4ADEDE] rounded-full hover:bg-gray-600 transition duration-300">Next Card(CLICK) <i class="fas fa-redo ml-2"></i></button>
+            </div>
+        </section>
+
+        <section id="bias" class="mb-24 slide-in left">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">The Mind's Glitches: Cognitive Biases <i class="fas fa-mask ml-2 text-[#4ADEDE]"></i></h2>
+            <div class="bg-gray-800 rounded-xl shadow-2xl p-8 relative overflow-hidden card-hover-effect">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 opacity-10 rounded-xl pointer-events-none animation-pulse-bg"></div>
+                <h3 class="text-2xl font-bold mb-4 text-center text-[#00C6FF] relative z-10">Flowchart of a Bias: The Confirmation Bias Loop</h3>
+                <p class="text-gray-400 mb-10 text-center max-w-3xl mx-auto relative z-10">Cognitive biases are mental shortcuts that can lead to errors in judgment. Confirmation bias, one of the most powerful, is our tendency to favor information that confirms our existing beliefs. This is how it can trap us in an echo chamber.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 relative z-10">
+                    <div class="flow-node animate-flow-step">
+                        <span class="text-4xl">🤔</span>
+                        <p class="font-bold text-lg mt-2">Pre-existing Belief</p>
+                        <p class="text-sm text-gray-400">"I'm not good at public speaking."</p>
+                    </div>
+                    <div class="flow-arrow md:rotate-0 rotate-90 animate-flow-step delay-200"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-node animate-flow-step delay-400">
+                        <span class="text-4xl">🔍</span>
+                        <p class="font-bold text-lg mt-2">Seek Confirming Evidence</p>
+                        <p class="text-sm text-gray-400">Notice every stumble, ignore fluent moments.</p>
+                    </div>
+                    <div class="flow-arrow md:rotate-0 rotate-90 animate-flow-step delay-600"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-node animate-flow-step delay-800">
+                        <span class="text-4xl">🙈</span>
+                        <p class="font-bold text-lg mt-2">Ignore Contradicting Evidence</p>
+                        <p class="text-sm text-gray-400">Dismiss compliments; forget successful presentations.</p>
+                    </div>
+                    <div class="flow-arrow md:rotate-0 rotate-90 animate-flow-step delay-1000"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-node animate-flow-step delay-1200">
+                        <span class="text-4xl">🔒</span>
+                        <p class="font-bold text-lg mt-2">Belief Strengthened</p>
+                        <p class="text-sm text-gray-400">"See? I really am bad at this."</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8 text-gray-300 relative z-10">
+                    <p class="font-semibold mb-2">✨ Breaking the Loop:</p>
+                    <p class="text-sm">Actively seek disconfirming evidence, challenge your assumptions, and consider alternative perspectives.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="manipulation" class="mb-24 slide-in right">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">The Dark Arts: Recognizing Manipulation <i class="fas fa-user-secret ml-2 text-[#4ADEDE]"></i></h2>
+            <p class="text-center text-gray-400 mb-10 max-w-4xl mx-auto">Understanding manipulation tactics is not about paranoia; it's about **empowerment**. It gives you the tools to protect your mental space and maintain healthy boundaries. Gaslighting is a particularly insidious form where someone makes you question your own reality.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="manipulation-card p-6 rounded-xl group relative overflow-hidden">
+                    <div class="manipulation-card-overlay"></div>
+                    <h4 class="font-bold text-xl text-[#4ADEDE] mb-2 relative z-10">1. Countering</h4>
+                    <p class="text-gray-300 mt-2 relative z-10">They question your memory of events, even when you're sure. <span class="font-italic text-gray-400">"That never happened. You're imagining things."</span></p>
+                </div>
+                <div class="manipulation-card p-6 rounded-xl group relative overflow-hidden">
+                    <div class="manipulation-card-overlay"></div>
+                    <h4 class="font-bold text-xl text-[#4ADEDE] mb-2 relative z-10">2. Discounting</h4>
+                    <p class="text-gray-300 mt-2 relative z-10">They minimize your feelings to make you feel like your reaction is invalid. <span class="font-italic text-gray-400">"You're being too sensitive. It's not a big deal."</span></p>
+                </div>
+                <div class="manipulation-card p-6 rounded-xl group relative overflow-hidden">
+                    <div class="manipulation-card-overlay"></div>
+                    <h4 class="font-bold text-xl text-[#4ADEDE] mb-2 relative z-10">3. Denial & Diversion</h4>
+                    <p class="text-gray-300 mt-2 relative z-10">They flatly deny saying or doing something, then change the subject to blame you. <span class="font-italic text-gray-400">"I never said that! Why are you always attacking me?"</span></p>
+                </div>
+                <div class="manipulation-card p-6 rounded-xl group relative overflow-hidden">
+                    <div class="manipulation-card-overlay"></div>
+                    <h4 class="font-bold text-xl text-[#4ADEDE] mb-2 relative z-10">4. Questioning Sanity</h4>
+                    <p class="text-gray-300 mt-2 relative z-10">A direct attack on your mental state. <span class="font-italic text-gray-400">"You sound crazy right now. Everyone thinks you're unstable."</span></p>
+                </div>
+                <div class="manipulation-card p-6 rounded-xl group relative overflow-hidden">
+                    <div class="manipulation-card-overlay"></div>
+                    <h4 class="font-bold text-xl text-[#4ADEDE] mb-2 relative z-10">5. Love-Bombing</h4>
+                    <p class="text-gray-300 mt-2 relative z-10">Overwhelming you with affection and praise to create dependency, which is later used for control. <span class="font-italic text-gray-400">"You're amazing! I've never met anyone like you... but you're being so difficult lately."</span></p>
+                </div>
+                <div class="manipulation-card p-6 rounded-xl group relative overflow-hidden">
+                    <div class="manipulation-card-overlay"></div>
+                    <h4 class="font-bold text-xl text-[#4ADEDE] mb-2 relative z-10">6. DARVO</h4>
+                    <p class="text-gray-300 mt-2 relative z-10">A common response to being held accountable: **D**eny, **A**ttack, and **R**everse **V**ictim and **O**ffender. <span class="font-italic text-gray-400">"I didn't do it, and you're the one who's manipulative!"</span></p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="px-8 py-4 bg-gray-700 text-[#00C6FF] font-bold rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out">Learn More About Boundaries <i class="fas fa-shield-alt ml-2"></i></button>
+            </div>
+        </section>
+
+        <section id="toolkit" class="mb-24 slide-in bottom">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">The Toolkit for Growth & Resilience <i class="fas fa-tools ml-2 text-[#4ADEDE]"></i></h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-8 card-hover-effect">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00C6FF] flex items-center"><i class="fas fa-hand-holding-heart mr-3 text-[#4ADEDE]"></i> Comparing Therapeutic Approaches</h3>
+                    <p class="text-gray-400 mb-6">Different therapies offer different tools. CBT focuses on changing thoughts, DBT on emotional skills, and Person-Centered on self-acceptance. This visual shows their primary focus areas, helping you understand where each excels.</p>
+                    <div class="chart-container">
+                        <canvas id="therapyChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg text-sm text-gray-300 border-l-4 border-[#00C6FF]">
+                        <p class="font-semibold mb-2">➡️ Which Path for You?</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><span class="text-[#00C6FF]">CBT:</span> For anxiety, depression, specific phobias.</li>
+                            <li><span class="text-[#4ADEDE]">DBT:</span> For emotional dysregulation, impulse control.</li>
+                            <li><span class="text-[#38B2AC]">Person-Centered:</span> For self-exploration, personal growth.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-8 card-hover-effect">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00C6FF] flex items-center"><i class="fas fa-dumbbell mr-3 text-[#4ADEDE]"></i> Effectiveness of Coping Strategies</h3>
+                    <p class="text-gray-400 mb-6">How we cope with stress matters. Adaptive strategies build long-term resilience, while maladaptive ones offer only temporary relief. This chart shows hypothetical effectiveness ratings, guiding you towards healthier habits.</p>
+                    <div class="chart-container">
+                        <canvas id="copingChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg text-sm text-gray-300 border-l-4 border-[#4ADEDE]">
+                        <p class="font-semibold mb-2">✅ Build Resilience:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Prioritize sleep & nutrition.</li>
+                            <li>Connect with supportive people.</li>
+                            <li>Practice gratitude daily.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insight-orb-section" class="mb-24 slide-in top">
+            <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#4ADEDE]">Unveil a New Insight <i class="fas fa-gem ml-2 text-[#4ADEDE]"></i></h2>
+            <div class="flex justify-center items-center">
+                <div id="insightOrb" class="insight-orb bg-gray-800 rounded-full flex flex-col items-center justify-center text-center p-8 cursor-pointer relative overflow-hidden group">
+                    <div class="orb-glow"></div>
+                    <p id="orbQuestion" class="text-xl md:text-2xl text-gray-300 font-semibold relative z-10 transition-opacity duration-500">Tap to reveal a profound psychological insight...</p>
+                    <p id="orbInsight" class="text-lg md:text-xl text-[#4ADEDE] font-light relative z-10 opacity-0 transition-opacity duration-500 mt-4"></p>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="text-center mt-20 relative z-10 opacity-0 animate-fade-in-up delay-600">
+            <p class="text-2xl font-semibold text-gray-300 mb-4">'Empowering Futures, One Mind at a Time'</p>
+            <p class="text-md text-gray-500 max-w-2xl mx-auto">This journey of self-discovery is ongoing. Stay curious, be kind to yourself, and continue to build your toolkit for a resilient and fulfilling life.</p>
+            <div class="flex justify-center items-center space-x-6 mt-8">
+                <a href="https://github.com/f3r33n" target="_blank" class="text-gray-400 hover:text-[#4ADEDE] transition duration-300"><i class="fab fa-github text-2xl"></i></a>
+                <a href="https://linkedin.com/in/peerzada-faizan-ul-haq/" target="_blank" class="text-gray-400 hover:text-[#4ADEDE] transition duration-300"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="mailto:peerzadafayzan@outlook.com" class="text-gray-400 hover:text-[#4ADEDE] transition duration-300"><i class="fas fa-envelope text-2xl"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 mt-6">&copy; 2025 Fluxia Cognition. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
