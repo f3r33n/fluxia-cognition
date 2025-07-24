@@ -367,7 +367,8 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target); // Stop observing once animated
+        } else {
+            entry.target.classList.remove('active');
         }
     });
 }, observerOptions);
@@ -375,7 +376,6 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
 });
-
 
 // --- Flashcard Logic ---
 const flashcardsData = [
@@ -478,5 +478,122 @@ insightOrb.addEventListener('click', () => {
             orbQuestion.textContent = 'Click again for another insight!'; // Keep the prompt
             orbQuestion.classList.remove('opacity-0');
         }, 500); // Wait for insight to fade out
+    }
+});
+// --- Cognition Compass Logic (Dynamic Version) ---
+
+// 1. Data Structure for the Compass
+const cognitionCompassData = {
+    "stress": ["Mindfulness", "Time-Blocking", "Journaling", "Meditation"],
+    "procrastination": ["Self-Efficacy", "Goal-Setting", "Pomodoro Technique", "Accountability"],
+    "anxiety": ["Breathing Exercises", "CBT Techniques", "Grounding", "Mindfulness"],
+    "low focus": ["Deep Work", "Pomodoro Technique", "Environmental Design", "Digital Detox"],
+    "low motivation": ["Goal-Setting", "Self-Efficacy", "Small Wins", "Values Clarification"],
+    "sadness": ["Journaling", "Social Connection", "Self-Care", "Hobbies"],
+    "depression": ["Seeking Professional Help", "Self-Care", "Social Connection", "Setting Small Goals"],
+    "tension": ["Progressive Muscle Relaxation", "Breathing Exercises", "Mindfulness", "Physical Activity"],
+    "negativity": ["Cognitive Restructuring", "Gratitude Journaling", "Positive Affirmations", "Mindfulness"],
+    "fear": ["Gradual Exposure", "Grounding", "Self-Compassion", "Visualization"],
+    "badvibes": ["Boundary Setting", "Positive Environment", "Mindful Awareness"],
+    "overthinking": ["Journaling", "Problem-Solving Focus", "Grounding", "Mindful Awareness"]
+};
+
+// 2. DOM Elements
+const compassContainer = document.getElementById('compass-container');
+const challengeInput = document.getElementById('challenge-input');
+const findToolsBtn = document.getElementById('find-tools-btn');
+const compassPlaceholder = document.getElementById('compass-placeholder');
+
+// 3. Main Function to Draw the Compass
+function drawCompass(challenge) {
+    // Clear the container before drawing a new compass
+    compassContainer.innerHTML = '';
+    compassPlaceholder.style.display = 'none';
+
+    // Get the tools for the given challenge
+    const tools = cognitionCompassData[challenge.toLowerCase()];
+
+    if (!tools || tools.length === 0) {
+        compassContainer.innerHTML = `<p class="text-xl text-gray-500 p-8">No tools found for that challenge. Try "Stress" or "Anxiety".</p>`;
+        return;
+    }
+
+    // A. Create the central CHALLENGE node
+    const challengeNode = document.createElement('div');
+    challengeNode.className = 'compass-node challenge-node';
+    challengeNode.textContent = challenge;
+    compassContainer.appendChild(challengeNode);
+
+    const numTools = tools.length;
+    const radius = Math.min(compassContainer.clientWidth, compassContainer.clientHeight) * 0.35;
+    const centerX = compassContainer.clientWidth / 2;
+    const centerY = compassContainer.clientHeight / 2;
+
+    // B. Create the TOOL nodes and connecting lines
+    tools.forEach((tool, index) => {
+        // Calculate position for each tool in a circle
+        const angle = (2 * Math.PI / numTools) * index - (Math.PI / 2);
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        // Create the tool node
+        const toolNode = document.createElement('div');
+        toolNode.className = 'compass-node tool-node';
+        toolNode.textContent = tool;
+        toolNode.style.top = `${y - toolNode.offsetHeight / 2}px`;
+        toolNode.style.left = `${x - toolNode.offsetWidth / 2}px`;
+        toolNode.style.animationDelay = `${0.2 + (index * 0.1)}s`;
+        compassContainer.appendChild(toolNode);
+
+        // Create the line to connect the challenge and tool
+        const line = document.createElement('div');
+        line.className = 'compass-line';
+
+        const lineLength = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+        const lineAngle = Math.atan2(y - centerY, x - centerX) * 180 / Math.PI;
+
+        line.style.width = `${lineLength}px`;
+        line.style.transform = `rotate(${lineAngle}deg)`;
+        line.style.top = `${centerY - 1}px`;
+        line.style.left = `${centerX}px`;
+        line.style.animationDelay = `${0.2 + (index * 0.1)}s`;
+
+        // Add a click listener to highlight the line and node
+        toolNode.addEventListener('click', () => {
+            document.querySelectorAll('.compass-line, .tool-node').forEach(el => el.classList.remove('active'));
+            line.classList.add('active');
+            toolNode.classList.add('active');
+        });
+        
+        compassContainer.appendChild(line);
+    });
+
+    // Make sure the central challenge node is visible and on top
+    challengeNode.style.opacity = 1;
+    challengeNode.style.transform = 'scale(1)';
+    challengeNode.style.zIndex = 20;
+}
+
+// 4. Event Listener for the button
+findToolsBtn.addEventListener('click', (event) => {
+    //event.preventDefault(); // Prevents form submission if it's inside a form
+    const input = challengeInput.value.trim();
+    if (input) {
+        drawCompass(input);
+    } else {
+        compassContainer.innerHTML = `<p class="text-xl text-gray-500 p-8">Please enter a challenge to begin!</p>`;
+        compassPlaceholder.style.display = 'none';
+    }
+});
+
+// 5. Load a default compass on page load to showcase the feature
+document.addEventListener('DOMContentLoaded', () => {
+    //drawCompass('Stress'); // REMOVED THIS TO SHOW PLACEHOLDER ON LOAD
+});
+
+// 6. Optional: Allow pressing Enter key in the input field
+challengeInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        findToolsBtn.click();
     }
 });

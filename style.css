@@ -599,3 +599,120 @@ footer a:hover {
         font-size: 0.875rem;
     }
 }
+/* --- Cognition Compass Styles --- */
+#cognition-compass {
+    position: relative;
+    z-index: 20; /* Ensure it's above the background animation */
+}
+
+/* Input and Button Styling */
+#challenge-input::placeholder {
+    color: #6B7280;
+}
+
+/* Compass Container */
+#compass-container {
+    background-color: rgba(45, 55, 72, 0.4);
+    border: 1px solid rgba(74, 222, 222, 0.3);
+    border-radius: 2rem;
+    box-shadow: 0 0 30px rgba(0, 198, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    height: 500px; /* NEW: Added robust height for desktop */
+}
+#compass-container:hover {
+    box-shadow: 0 0 50px rgba(74, 222, 222, 0.4);
+}
+
+/* Compass Node (Circles) */
+.compass-node {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    cursor: default;
+    transition: all 0.6s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: node-fade-in 0.8s forwards;
+    z-index: 10;
+    will-change: transform, opacity;
+}
+
+/* Specific Node Styles */
+.challenge-node {
+    background: radial-gradient(circle, #00C6FF 0%, rgba(0, 198, 255, 0.8) 100%);
+    color: #1a202c;
+    border: 2px solid rgba(0, 198, 255, 0.6);
+}
+
+.tool-node {
+    background: radial-gradient(circle, #4ADEDE 0%, rgba(74, 222, 222, 0.8) 100%);
+    color: #1a202c;
+    border: 2px solid rgba(74, 222, 222, 0.6);
+    cursor: pointer;
+}
+.tool-node:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    z-index: 11;
+}
+.tool-node.active {
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.8);
+}
+
+/* Lines connecting the nodes */
+.compass-line {
+    position: absolute;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform-origin: 0% 50%;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    animation: line-fade-in 0.8s forwards;
+    z-index: 5;
+    will-change: width, transform, opacity;
+}
+.compass-line.active {
+    background-color: #00C6FF;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
+}
+
+/* Keyframe Animations */
+@keyframes node-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.6) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes line-fade-in {
+    from { opacity: 0; width: 0; }
+    to { opacity: 1; width: var(--line-length); }
+}
+
+/* For smaller screens, adjust node size and position */
+@media (max-width: 768px) {
+    #compass-container {
+        height: 400px; /* NEW: Added robust height for mobile */
+        max-width: 90%;
+    }
+    .compass-node {
+        width: 80px;
+        height: 80px;
+        font-size: 0.7rem;
+    }
+}
