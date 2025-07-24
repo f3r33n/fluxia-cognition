@@ -480,6 +480,7 @@ insightOrb.addEventListener('click', () => {
         }, 500); // Wait for insight to fade out
     }
 });
+
 // --- Cognition Compass Logic (Dynamic Version) ---
 
 // 1. Data Structure for the Compass
@@ -597,3 +598,79 @@ challengeInput.addEventListener('keydown', (event) => {
         findToolsBtn.click();
     }
 });
+// --- Random Insight Generator Logic ---
+const psychologicalFacts = [
+    {
+        icon: 'fas fa-brain',
+        title: 'The Dunning-Kruger Effect',
+        text: 'The less competent we are, the more we overestimate our abilities. This cognitive bias keeps us from recognizing our own mistakes.'
+    },
+    {
+        icon: 'fas fa-eye-slash',
+        title: 'The Spotlight Effect',
+        text: 'We often believe others notice our flaws and actions more than they actually do. Most people are too busy thinking about themselves to notice.'
+    },
+    {
+        icon: 'fas fa-cloud',
+        title: 'Cognitive Dissonance',
+        text: 'The mental discomfort experienced when holding two or more contradictory beliefs, ideas, or values simultaneously.'
+    },
+    {
+        icon: 'fas fa-sync-alt',
+        title: 'The Confirmation Bias',
+        text: 'The tendency to search for, interpret, favor, and recall information in a way that confirms or supports one\'s pre-existing beliefs.'
+    },
+    {
+        icon: 'fas fa-lock',
+        title: 'The Paradox of Choice',
+        text: 'Having more choices can lead to increased anxiety and a decrease in satisfaction. Too many options can be overwhelming.'
+    },
+    {
+        icon: 'fas fa-lightbulb',
+        title: 'The Framing Effect',
+        text: 'Decisions are often influenced by how information is presented, or "framed." The same fact can be perceived differently based on its context.'
+    },
+    {
+        icon: 'fas fa-hourglass-half',
+        title: 'The Zeigarnik Effect',
+        text: 'Unfinished or interrupted tasks are remembered better than completed ones. This is why cliffhangers and to-do lists are so powerful.'
+    },
+    {
+        icon: 'fas fa-users',
+        title: 'The Bystander Effect',
+        text: 'Individuals are less likely to offer help to a victim when other people are present. The more bystanders, the less responsibility each feels.'
+    }
+];
+
+const randomGenerateBtn = document.getElementById('random-generate-btn');
+const randomInsightCard = document.getElementById('random-insight-card');
+const randomInsightIcon = document.getElementById('random-insight-icon');
+const randomInsightTitle = document.getElementById('random-insight-title');
+const randomInsightText = document.getElementById('random-insight-text');
+
+// Function to generate and display a single random insight
+function generateRandomInsight() {
+    // Add fade-out class to start the transition
+    randomInsightCard.classList.add('fade-out');
+
+    // Wait for the transition to complete
+    setTimeout(() => {
+        // Pick a random fact from the array
+        const randomIndex = Math.floor(Math.random() * psychologicalFacts.length);
+        const newFact = psychologicalFacts[randomIndex];
+
+        // Update the card's content
+        randomInsightIcon.className = newFact.icon;
+        randomInsightTitle.textContent = newFact.title;
+        randomInsightText.textContent = newFact.text;
+
+        // Remove fade-out class to fade it back in
+        randomInsightCard.classList.remove('fade-out');
+    }, 300); // 300ms matches the CSS transition duration
+}
+
+// Event listener for the generate button
+randomGenerateBtn.addEventListener('click', generateRandomInsight);
+
+// Generate an insight on initial page load
+window.addEventListener('DOMContentLoaded', generateRandomInsight);
