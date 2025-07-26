@@ -877,10 +877,22 @@ footer a:hover {
     transform: translateY(10px) scale(0.95);
 }
 @media (max-width: 600px) {
+  .facts-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* Increase spacing between circles */
+    padding: 1rem;
+  }
+
   .fact-circle {
     width: 120px;
     height: 120px;
-    margin: 10px auto;
+    margin: 0; /* REMOVE auto, use gap instead */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .fact-circle .icon-wrapper {
@@ -890,14 +902,7 @@ footer a:hover {
   .fact-text {
     font-size: 0.9rem;
     text-align: center;
-    padding: 0 8px;
-  }
-
-  .facts-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    padding: 0 6px;
   }
 }
 
