@@ -909,3 +909,14 @@ footer a:hover {
   }
 }
 
+body {
+  cursor: default; /* make sure cursor is visible */
+}
+
+canvas {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
