@@ -920,3 +920,49 @@ canvas {
   left: 0;
   z-index: 9999;
 }
+/* === Mobile Responsiveness Fix === */
+@media (max-width: 600px) {
+  body {
+    font-size: 90%; /* Slightly smaller base font */
+    padding: 0 1rem;
+  }
+
+  section, .container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  /* Make cards and nodes scale down */
+  .stat-card,
+  .flow-node,
+  .flashcard,
+  .fact-circle,
+  .insight-orb {
+    max-width: 90% !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 1rem auto;
+  }
+
+  /* Ensure texts inside scale */
+  h1, h2, h3 {
+    font-size: 1.3rem;
+  }
+
+  p, li, .fact-text {
+    font-size: 1rem;
+  }
+
+  /* Chart container responsive */
+  .chart-container {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Footer icons and nav */
+  footer, nav {
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
